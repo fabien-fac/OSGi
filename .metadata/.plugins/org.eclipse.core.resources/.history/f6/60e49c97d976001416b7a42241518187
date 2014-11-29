@@ -1,0 +1,10 @@
+package org.ups.weather.realweather;
+
+public class ParserJson {
+	
+	public void getWeather(String json){
+		JsonElement jelement = new JsonParser().parse(json);
+		JsonObject jobject = jelement.getAsJsonObject();
+	}
+
+}

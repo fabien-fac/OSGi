@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RandomWeather
+Bundle-SymbolicName: org.ups.weather.randomWeather
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.ups.weather.realweather.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.osgi.framework;version="1.3.0",
+ org.ups.weather.service
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.ups.weather.jar;bundle-version="1.0.0"

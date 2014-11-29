@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;org.ups.tp1.service.impl.IMyServiceImpl&apos; to &apos;MyServiceImpl&apos;&#x0A;- Original project: &apos;org.ups.tp1&apos;&#x0A;- Original element: &apos;org.ups.tp1.service.impl.IMyServiceImpl&apos;&#x0A;- Renamed element: &apos;org.ups.tp1.service.impl.MyServiceImpl&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;IMyServiceImpl&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;org.ups.tp1.service.impl{IMyServiceImpl.java[IMyServiceImpl" matchStrategy="1" name="MyServiceImpl" qualified="false" references="true" similarDeclarations="false" stamp="1414675553913" textual="false" version="1.0"/>
+</session>

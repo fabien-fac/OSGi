@@ -1,0 +1,49 @@
+package org.ups.weather.randomweather;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
+import org.ups.weather.service.ILocation;
+import org.ups.weather.service.IWeatherListener;
+import org.ups.weather.service.IWeatherService;
+import org.ups.weather.service.LocationImpl;
+
+public class IWeatherServiceImpl implements IWeatherService{
+	
+	private Random rand = new Random();
+	private Float MAX_LATITUDE_VALUE = (float) 90;
+	private Float MAX_LONGITUDE_VALUE = (float) 180;
+	private Float MIN_VALUE = (float) 0;
+	public static Map<IWeatherListener,List<ILocation>> map = new HashMap<IWeatherListener, List<ILocation>>();
+
+	@Override
+	public void addWeatherListener(IWeatherListener weatherListener,
+			ILocation location) {
+		List<ILocation> locations = new ArrayList<ILocation>();
+		if(map.containsKey(weatherListener)){
+			locations = map.remove(weatherListener);
+		}
+		map.put(weatherListener, location);
+	}
+
+	@Override
+	public List<ILocation> getListAvailableLocation() {
+		List<ILocation> list = new ArrayList<ILocation>();
+		
+		list.add(getNewLocation());
+		list.add(getNewLocation());
+		return list;
+	}
+	
+	private LocationImpl getNewLocation(){
+		return new LocationImpl(randRange(MIN_VALUE, MAX_LATITUDE_VALUE), randRange(MIN_VALUE, MAX_LONGITUDE_VALUE));
+	}
+	
+	private float randRange(float min, float max) {
+		return min + rand.nextFloat() * (max - min);
+	}
+
+}

@@ -1,0 +1,10 @@
+package org.ups.weather.randomweather;
+
+public class ThreadWeatherChange extends Thread{
+	
+	private int timeSleepMS = 3000;
+	public void run(){
+		
+	}
+
+}

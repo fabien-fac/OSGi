@@ -1,0 +1,18 @@
+package org.ups.weather.randomweather;
+
+public class ThreadWeatherChange extends Thread{
+	
+	private int timeSleepMS = 3000;
+	public void run(){
+		
+		try {
+			
+			Thread.sleep(timeSleepMS);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

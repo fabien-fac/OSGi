@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jar
+Bundle-SymbolicName: org.ups.weather.jar
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Export-Package: com.google.gson,
+ com.google.gson.annotations,
+ com.google.gson.internal,
+ com.google.gson.internal.bind,
+ com.google.gson.reflect,
+ com.google.gson.stream
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

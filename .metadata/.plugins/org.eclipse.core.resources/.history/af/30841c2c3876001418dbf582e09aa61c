@@ -1,0 +1,43 @@
+package org.ups.weather.application;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+import org.osgi.util.tracker.ServiceTrackerCustomizer;
+import org.ups.weather.service.IWeatherListener;
+
+public class ConsoleTrackerCustomizer  implements ServiceTrackerCustomizer<IWeatherListener, IWeatherListener>{
+	
+	private BundleContext bundleContext;
+	public static List<IWeatherListener> listListener = new ArrayList<IWeatherListener>();
+
+	public ConsoleTrackerCustomizer(BundleContext _bundleContext) {
+	    bundleContext = _bundleContext;
+	}
+	
+	@Override
+	public IWeatherListener addingService(ServiceReference<IWeatherListener> reference) {
+		IWeatherListener myService = (IWeatherListener) bundleContext.getService(reference);
+		listListener.add(myService)
+	    return myService;
+	}
+
+	@Override
+	public void modifiedService(ServiceReference<IWeatherListener> reference,
+			IWeatherListener service) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removedService(ServiceReference<IWeatherListener> reference,
+			IWeatherListener service) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+}

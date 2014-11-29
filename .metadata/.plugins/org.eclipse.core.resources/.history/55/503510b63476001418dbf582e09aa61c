@@ -1,0 +1,29 @@
+package org.ups.weather.randomweather;
+
+import java.util.Map.Entry;
+
+import org.ups.weather.service.ILocation;
+import org.ups.weather.service.IWeatherListener;
+
+public class ThreadWeatherChange extends Thread {
+
+	private int timeSleepMS = 3000;
+
+	public void run() {
+
+		try {
+
+			for (Entry<IWeatherListener, ILocation> entry : IWeatherServiceImpl.map
+					.entrySet()) {
+				System.out.println(entry.getKey() + "/" + entry.getValue());
+				entry.getKey().weatherChanged(null);
+			}
+
+			Thread.sleep(timeSleepMS);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}
