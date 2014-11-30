@@ -1,0 +1,5 @@
+package org.ups.weather.affichage.service.impl;
+
+public class IWeatherListenerImpl {
+
+}

@@ -6,6 +6,8 @@ import org.ups.weather.service.IWeatherService;
 
 public class Activator implements BundleActivator {
 
+	private ThreadWeatherChange thread;
+
 	/*
 	 * (non-Javadoc)
 	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
@@ -17,7 +19,7 @@ public class Activator implements BundleActivator {
 		
 		context.registerService(IWeatherService.class.getName(), impl, null);
 		
-		ThreadWeatherChange thread = new ThreadWeatherChange();
+		thread = new ThreadWeatherChange();
 		thread.start();
 	}
 	
@@ -27,6 +29,7 @@ public class Activator implements BundleActivator {
 	 */
 	public void stop(BundleContext context) throws Exception {
 		System.out.println("Bundle IWeatherService random stop");
+		thread.stopThread();
 	}
 
 }

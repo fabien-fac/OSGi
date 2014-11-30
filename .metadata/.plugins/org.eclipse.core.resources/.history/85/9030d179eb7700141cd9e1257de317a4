@@ -1,0 +1,39 @@
+package org.ups.weather.affichage.swt;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.util.tracker.ServiceTracker;
+import org.osgi.util.tracker.ServiceTrackerCustomizer;
+import org.ups.weather.service.IWeatherService;
+
+public class Activator implements BundleActivator {
+	
+	WidowThread winThread;
+	
+	/*
+	 * (non-Javadoc)
+	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
+	 */
+	public void start(BundleContext context) throws Exception {
+		System.out.println("Lancement affichage swt");
+		
+		ServiceTrackerCustomizer<IWeatherService, IWeatherService> serviceLocation = new IWeatherServiceTrackerCustomizer(
+				context);
+		ServiceTracker<IWeatherService, IWeatherService> locationTracker = new ServiceTracker<IWeatherService, IWeatherService>(
+				context, IWeatherService.class.getName(), serviceLocation);
+
+		locationTracker.open();
+		
+		winThread = new WidowThread()
+		winThread.start();
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
+	 */
+	public void stop(BundleContext context) throws Exception {
+		System.out.println("Goodbye World!!");
+	}
+
+}

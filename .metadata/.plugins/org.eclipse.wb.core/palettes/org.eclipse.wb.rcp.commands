@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<moveEntry
+		id="org.eclipse.wb.rcp.composites org.eclipse.swt.custom.ScrolledComposite"
+		category="org.eclipse.wb.rcp.composites"
+		nextEntry="org.eclipse.wb.rcp.composites org.eclipse.swt.widgets.TabFolder"/>
+	<addCategory
+		id="category_1417363785188"
+		name="Custom"
+		description="Container for custom components"
+		visible="true"
+		open="true"/>
+	<addComponent
+		id="custom_1417363785187"
+		name="LocationDisplay"
+		description="Creates org.ups.weather.affichage.swt.LocationDisplay component."
+		visible="true"
+		class="org.ups.weather.affichage.swt.LocationDisplay"
+		category="category_1417363785188"/>
+	<addComponent
+		id="custom_1417363800350"
+		name="LocationDisplay"
+		description="Creates org.ups.weather.affichage.swt.LocationDisplay component."
+		visible="true"
+		class="org.ups.weather.affichage.swt.LocationDisplay"
+		category="category_1417363785188"/>
+	<addComponent
+		id="custom_1417363819189"
+		name="LocationDisplay"
+		description="Creates org.ups.weather.affichage.swt.LocationDisplay component."
+		visible="true"
+		class="org.ups.weather.affichage.swt.LocationDisplay"
+		category="category_1417363785188"/>
+</commands>

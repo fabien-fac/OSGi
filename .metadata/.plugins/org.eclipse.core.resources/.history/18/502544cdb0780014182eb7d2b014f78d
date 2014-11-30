@@ -1,0 +1,70 @@
+package org.ups.weather.affichage.swt;
+
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Label;
+import org.ups.weather.service.WeatherType;
+
+public class LocationDisplay extends Composite {
+
+	private Label lblVilleLocation;
+	private Label lblWeather;
+	/**
+	 * Create the composite.
+	 * @param parent
+	 * @param style
+	 */
+	public LocationDisplay(Composite parent, int style) {
+		super(parent, style);
+		
+		setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		
+		Label lblNewLabel = new Label(this, SWT.NONE);
+		lblNewLabel.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		lblNewLabel.setImage(SWTResourceManager.getImage(LocationDisplay.class, "/org/ups/weather/affichage/images/SHINY.png"));
+		lblNewLabel.setBounds(500, 10, 44, 33);
+		
+		Label lblLocati = new Label(this, SWT.NONE);
+		lblLocati.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		lblLocati.setBounds(10, 10, 69, 21);
+		lblLocati.setText("Location :");
+		
+		lblVilleLocation = new Label(this, SWT.NONE);
+		lblVilleLocation.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		lblVilleLocation.setBounds(85, 10, 265, 21);
+		lblVilleLocation.setText("New Label");
+		
+		lblWeather = new Label(this, SWT.NONE);
+		lblWeather.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		lblWeather.setBounds(356, 10, 138, 21);
+		lblWeather.setText("weather");
+
+	}
+
+	@Override
+	protected void checkSubclass() {
+		// Disable the check that prevents subclassing of SWT components
+	}
+	
+	public void setData(final String villeLocation, final WeatherType weather){
+		Display.getDefault().asyncExec(new Runnable() {
+		    public void run() {
+		    	System.out.println("ville location : " + villeLocation);
+		    	lblWeather.setText(weather.toString());
+		    	lblVilleLocation.setText(villeLocation.toString());
+		    	
+		    	switch (weather) {
+				case CLOUDY:
+					
+					break;
+
+				default:
+					break;
+				}
+		    }
+		});
+	}
+
+}

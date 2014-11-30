@@ -1,0 +1,40 @@
+package org.ups.weather.affichage.service.impl;
+
+import org.ups.weather.affichage.swt.LocationDisplay;
+import org.ups.weather.affichage.swt.WeatherWindow;
+import org.ups.weather.service.ILocation;
+import org.ups.weather.service.IWeatherListener;
+import org.ups.weather.service.WeatherType;
+
+public class IWeatherListenerImpl implements IWeatherListener{
+	private ILocation location;
+	private int locationDisplayId;
+
+	public IWeatherListenerImpl(ILocation location) {
+		this.location = location;
+		this.locationDisplayId = WeatherWindow.getInstance().getLocationDisplayId();
+	}
+
+	@Override
+	public void weatherChanged(WeatherType wheather) {
+		WeatherWindow ww = WeatherWindow.getInstance();
+		
+		while(!ww.isWindowReady()){
+			try {
+				Thread.sleep(1000);
+				System.out.println("sleep");
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		LocationDisplay ld = WeatherWindow.getInstance().getLocationDisplayFromId(locationDisplayId);
+		if(ld == null){
+			return;
+		}
+		
+		
+		System.out.println("[console] : latitude : " + location.getLatitude() + ", longitude : " + location.getLongitude() + " " + wheather);		
+	}
+}

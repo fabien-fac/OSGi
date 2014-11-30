@@ -1,11 +1,8 @@
 package org.ups.weather.realweather;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.Random;
 
 import org.ups.weather.service.ILocation;
 import org.ups.weather.service.IWeatherListener;
@@ -14,13 +11,14 @@ import org.ups.weather.service.WeatherType;
 public class ThreadWeatherChange extends Thread {
 
 	private int timeSleepMS = 3000;
+	private boolean isRunning = true;
 
 	public void run() {
 		
-		while(true){
+		while(isRunning ){
 			try {
 				
-				System.out.println("Mise à jour météo");
+				System.out.println("Mise à jour météo réelle");
 
 				for (Entry<IWeatherListener, List<ILocation>> entry : IWeatherServiceImpl.map
 						.entrySet()) {
@@ -31,7 +29,9 @@ public class ThreadWeatherChange extends Thread {
 					}
 				}
 
-				Thread.sleep(timeSleepMS);
+				if(isRunning){
+					Thread.sleep(timeSleepMS);
+				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -44,7 +44,6 @@ public class ThreadWeatherChange extends Thread {
 		Webservices ws = new Webservices();
 		String jsonRes = ws.get_weather(location);
 		
-		System.out.println(jsonRes);
 		ParserJson parser = new ParserJson();
 		String weather = parser.getWeather(jsonRes).toLowerCase();
 		
@@ -70,6 +69,10 @@ public class ThreadWeatherChange extends Thread {
 		}
 		
 		return weatherType;
+	}
+	
+	public void stopThread(){
+		this.isRunning = false;
 	}
 
 }

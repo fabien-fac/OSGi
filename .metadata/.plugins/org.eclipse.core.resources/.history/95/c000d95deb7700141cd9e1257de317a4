@@ -1,0 +1,9 @@
+package org.ups.weather.affichage.swt;
+
+public class WidowThread extends Thread{
+
+	@Override
+	public void run() {
+		super.run();
+	}
+}

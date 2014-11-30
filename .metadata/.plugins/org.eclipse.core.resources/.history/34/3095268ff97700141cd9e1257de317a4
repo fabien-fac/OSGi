@@ -1,0 +1,101 @@
+package org.ups.weather.affichage.swt;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.layout.RowData;
+
+public class WeatherWindow {
+
+	protected Shell shell;
+	private Table table;
+	private static WeatherWindow instance;
+	private List<LocationDisplay> listLocationDisplay = new ArrayList<LocationDisplay>();
+	private Composite composite_2;
+	
+	public static WeatherWindow getInstance(){
+		if(instance == null){
+			instance = new WeatherWindow();
+		}
+		
+		return instance;
+	}
+	
+	private WeatherWindow(){
+		
+	}
+	
+	public synchronized int getLocationDisplayId(){
+		LocationDisplay ld = new LocationDisplay(composite_2, 0);
+		listLocationDisplay.add(ld);
+		return listLocationDisplay.size() - 1;
+	}
+	
+	public LocationDisplay getLocationDisplayFromId(int id){
+		if(listLocationDisplay.size() > id){
+			return listLocationDisplay.get(id);
+		}
+		
+		return null;
+	}
+
+	/**
+	 * Open the window.
+	 * @wbp.parser.entryPoint
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shell = new Shell();
+		shell.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		shell.setSize(589, 406);
+		shell.setText("SWT Application");
+		
+		Composite composite = new Composite(shell, SWT.NONE);
+		composite.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		composite.setBounds(0, 0, 581, 374);
+		
+		Composite composite_1 = new Composite(composite, SWT.NONE);
+		composite_1.setBounds(10, 10, 561, 90);
+		
+		Label lblNewLabel = new Label(composite_1, SWT.NONE);
+		lblNewLabel.setImage(SWTResourceManager.getImage(WeatherWindow.class, "/org/ups/weather/affichage/images/icon2.png"));
+		lblNewLabel.setBounds(10, 10, 80, 71);
+		
+		Label lblOsgiWeather = new Label(composite_1, SWT.NONE);
+		lblOsgiWeather.setBounds(96, 34, 98, 21);
+		lblOsgiWeather.setText("OSGi Weather");
+		
+		composite_2 = new Composite(composite, SWT.NONE);
+		composite_2.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		composite_2.setBounds(10, 106, 561, 258);
+		composite_2.setLayout(new RowLayout(SWT.HORIZONTAL));
+		
+		table = new Table(composite_2, SWT.BORDER | SWT.FULL_SELECTION);
+		table.setLayoutData(new RowData(561, 258));
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
+		
+	}
+}

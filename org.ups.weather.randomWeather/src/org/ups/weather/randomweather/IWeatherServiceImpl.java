@@ -34,10 +34,12 @@ public class IWeatherServiceImpl implements IWeatherService{
 	public List<ILocation> getListAvailableLocation() {
 		List<ILocation> list = new ArrayList<ILocation>();
 		
-		ILocation Paris = new LocationImpl(randRange(MIN_VALUE, MAX_LATITUDE_VALUE), randRange(MIN_VALUE, MAX_LONGITUDE_VALUE));
-		list.add(Paris);
-		ILocation Toulouse = new LocationImpl(randRange(MIN_VALUE, MAX_LATITUDE_VALUE), randRange(MIN_VALUE, MAX_LONGITUDE_VALUE));
-		list.add(Toulouse);
+		LocationImpl paris = new LocationImpl(randRange(MIN_VALUE, MAX_LATITUDE_VALUE), randRange(MIN_VALUE, MAX_LONGITUDE_VALUE));
+		paris.setCity("Paris");
+		list.add(paris);
+		LocationImpl toulouse = new LocationImpl(randRange(MIN_VALUE, MAX_LATITUDE_VALUE), randRange(MIN_VALUE, MAX_LONGITUDE_VALUE));
+		toulouse.setCity("Toulouse");
+		list.add(toulouse);
 		return list;
 	}
 	

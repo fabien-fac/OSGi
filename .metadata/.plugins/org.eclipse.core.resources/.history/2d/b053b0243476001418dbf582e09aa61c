@@ -1,9 +1,0 @@
-package org.ups.weather.randomweather;
-
-public class ThreadWeatherChange extends Thread{
-	
-	public void run(){
-		
-	}
-
-}

@@ -5,6 +5,7 @@ public class LocationImpl implements ILocation{
 	
 	private Float latitude;
 	private Float longitude;
+	private String city;
 	
 	public LocationImpl(Float latitude, Float longitude){
 		this.latitude = latitude;
@@ -29,6 +30,11 @@ public class LocationImpl implements ILocation{
 		return longitude;
 	}
 	
+	public String getCity() {
+		return city;
+	}
 	
-
+	public void setCity(String city) {
+		this.city = city;
+	}
 }
