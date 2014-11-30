@@ -28,11 +28,15 @@ public class IWeatherServiceImpl implements IWeatherService{
 	@Override
 	public List<ILocation> getListAvailableLocation() {
 		List<ILocation> list = new ArrayList<ILocation>();
-		
-		ILocation Paris = new LocationImpl(48.8534100f, 2.3488000f);
-		list.add(Paris);
-		ILocation Toulouse = new LocationImpl(43.6042600f, 1.4436700f);
-		list.add(Toulouse);
+		LocationImpl paris = new LocationImpl(48.853409f, 2.3488f);
+		paris.setCity("Paris");
+		list.add(paris);
+		LocationImpl toulouse = new LocationImpl(43.6042600f, 1.4436700f);
+		toulouse.setCity("Toulouse");
+		list.add(toulouse);
+		LocationImpl split = new LocationImpl(43.508911f, 16.43915f);
+		split.setCity("Split");
+		list.add(split);
 		return list;
 	}
 

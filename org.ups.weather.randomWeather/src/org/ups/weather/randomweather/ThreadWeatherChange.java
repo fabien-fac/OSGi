@@ -12,14 +12,14 @@ import org.ups.weather.service.WeatherType;
 
 public class ThreadWeatherChange extends Thread {
 
-	private int timeSleepMS = 3000;
+	private int timeSleepMS = 2000;
 
 	public void run() {
 		
 		while(true){
 			try {
 				
-				System.out.println("passage");
+				System.out.println("Mise à jour météo random");
 
 				for (Entry<IWeatherListener, List<ILocation>> entry : IWeatherServiceImpl.map
 						.entrySet()) {

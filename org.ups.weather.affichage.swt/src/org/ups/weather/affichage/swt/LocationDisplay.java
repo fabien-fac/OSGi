@@ -35,12 +35,12 @@ public class LocationDisplay extends Composite {
 		lblVilleLocation = new Label(this, SWT.NONE);
 		lblVilleLocation.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		lblVilleLocation.setBounds(85, 10, 265, 21);
-		lblVilleLocation.setText("New Label");
+		lblVilleLocation.setText("");
 		
 		lblWeather = new Label(this, SWT.NONE);
 		lblWeather.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		lblWeather.setBounds(356, 10, 138, 21);
-		lblWeather.setText("weather");
+		lblWeather.setText("");
 
 	}
 
@@ -52,7 +52,6 @@ public class LocationDisplay extends Composite {
 	public void setData(final String villeLocation, final WeatherType weather){
 		Display.getDefault().asyncExec(new Runnable() {
 		    public void run() {
-		    	System.out.println("ville location : " + villeLocation);
 		    	lblWeather.setText(weather.toString());
 		    	lblVilleLocation.setText(villeLocation.toString());
 		    	

@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="org.ups.weather.service.IWeatherService"/>
 <fullyQualifiedTypeName name="org.ups.weather.application.LocationImpl"/>
 <fullyQualifiedTypeName name="java.lang.Float"/>
-<fullyQualifiedTypeName name="org.ups.weather.service.LocationImpl"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="org.ups.weather.randomweather.IWeatherServiceImpl"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
@@ -26,14 +25,16 @@
 <fullyQualifiedTypeName name="org.ups.weather.realweather.ParserJson"/>
 <fullyQualifiedTypeName name="org.osgi.util.tracker.ServiceTrackerCustomizer"/>
 <fullyQualifiedTypeName name="org.ups.weather.service.IWeatherListener"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="org.ups.weather.affichage.swt.WidowThread"/>
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 <fullyQualifiedTypeName name="org.ups.weather.service.ILocation"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="org.ups.weather.affichage.swt.WeatherWindow"/>
 <fullyQualifiedTypeName name="org.ups.weather.affichage.swt.LocationDisplay"/>
 <fullyQualifiedTypeName name="org.ups.weather.service.WeatherType"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="org.ups.weather.affichage.swt.WeatherWindow"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.widgets.Composite"/>
+<fullyQualifiedTypeName name="org.ups.weather.service.LocationImpl"/>
 </qualifiedTypeNameHistroy>

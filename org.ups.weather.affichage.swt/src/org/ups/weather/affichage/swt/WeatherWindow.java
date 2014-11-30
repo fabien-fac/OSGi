@@ -42,7 +42,6 @@ public class WeatherWindow {
 		try{
 			Display.getDefault().asyncExec(new Runnable() {
 			    public void run() {
-			    	System.out.println("ajouté");
 			    	LocationDisplay locationDisplay = new LocationDisplay(composite, SWT.NONE);
 			    	int x = 106 + cpt * 43;
 					locationDisplay.setBounds(10, x, 561, 43);
@@ -91,20 +90,24 @@ public class WeatherWindow {
 		shell = new Shell();
 		shell.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		shell.setSize(589, 406);
-		shell.setText("SWT Application");
+		shell.setText("OSGi Weather");
 		
 		composite = new Composite(shell, SWT.NONE);
 		composite.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		composite.setBounds(0, 0, 581, 374);
 		
 		composite_1 = new Composite(composite, SWT.NONE);
+		composite_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_FOREGROUND));
 		composite_1.setBounds(10, 10, 561, 90);
 		
 		Label lblNewLabel = new Label(composite_1, SWT.NONE);
+		lblNewLabel.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_FOREGROUND));
 		lblNewLabel.setImage(SWTResourceManager.getImage(WeatherWindow.class, "/org/ups/weather/affichage/images/icon2.png"));
 		lblNewLabel.setBounds(10, 10, 80, 71);
 		
 		Label lblOsgiWeather = new Label(composite_1, SWT.NONE);
+		lblOsgiWeather.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_FOREGROUND));
+		lblOsgiWeather.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		lblOsgiWeather.setBounds(96, 34, 98, 21);
 		lblOsgiWeather.setText("OSGi Weather");
 		
